@@ -14,7 +14,7 @@ struct ContentView: View {
     @State private var userIsLoggedIn = false
     var body: some View {
         if userIsLoggedIn {
-            ListView()
+            TabBarScreenView()
         } else {
             content
         }
