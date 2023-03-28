@@ -18,16 +18,6 @@ struct HomeView: View {
     }
 }
 
-struct ProfileView: View {
-    var body: some View {
-        NavigationView {
-            ZStack {
-                Color.green
-            }
-            .navigationTitle("Profile")
-        }
-    }
-}
 
 struct BrowseView: View {
     var body: some View {
@@ -40,7 +30,7 @@ struct BrowseView: View {
     }
 }
 
-struct TabBarScreenView: View {
+struct TabBarView: View {
     
     var body: some View {
         TabView {
@@ -67,9 +57,9 @@ struct TabBarScreenView: View {
     }
 }
 
-struct TabBarScreenView_Previews:  PreviewProvider {
+struct TabBarView_Previews:  PreviewProvider {
     static var previews: some View {
-        TabBarScreenView()
+        TabBarView()
     }
     
 }
