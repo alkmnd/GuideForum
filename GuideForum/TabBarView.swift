@@ -7,16 +7,6 @@
 
 import Foundation
 import SwiftUI
-struct HomeView: View {
-    var body: some View {
-        NavigationView {
-            ZStack {
-                Color.red
-            }
-            .navigationTitle("Home")
-        }
-    }
-}
 
 
 struct BrowseView: View {
