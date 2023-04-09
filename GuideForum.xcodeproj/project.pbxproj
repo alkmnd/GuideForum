@@ -10,6 +10,8 @@
 		7C4848B529D495860087428D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4848B429D495860087428D /* HomeView.swift */; };
 		7C4848B729D49B700087428D /* ProfileLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4848B629D49B700087428D /* ProfileLink.swift */; };
 		7C4848B929D49B9A0087428D /* ProfileInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4848B829D49B9A0087428D /* ProfileInfo.swift */; };
+		7C4848BB29D4A4320087428D /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4848BA29D4A4320087428D /* PostView.swift */; };
+		7C4848BD29D4A4600087428D /* PostlineItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4848BC29D4A4600087428D /* PostlineItem.swift */; };
 		7C59ADFF29CE57B30066E8ED /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C59ADFE29CE57B30066E8ED /* TabBarView.swift */; };
 		7C59AE0129D0CB5A0066E8ED /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C59AE0029D0CB5A0066E8ED /* ProfileView.swift */; };
 		7C6C850E29CB5B7B0074F443 /* GuideForumApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6C850D29CB5B7B0074F443 /* GuideForumApp.swift */; };
@@ -25,6 +27,8 @@
 		7C4848B429D495860087428D /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		7C4848B629D49B700087428D /* ProfileLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileLink.swift; sourceTree = "<group>"; };
 		7C4848B829D49B9A0087428D /* ProfileInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfo.swift; sourceTree = "<group>"; };
+		7C4848BA29D4A4320087428D /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
+		7C4848BC29D4A4600087428D /* PostlineItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostlineItem.swift; sourceTree = "<group>"; };
 		7C59ADFE29CE57B30066E8ED /* TabBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		7C59AE0029D0CB5A0066E8ED /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		7C6C850A29CB5B7B0074F443 /* GuideForum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GuideForum.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -77,6 +81,8 @@
 				7C4848B429D495860087428D /* HomeView.swift */,
 				7C4848B629D49B700087428D /* ProfileLink.swift */,
 				7C4848B829D49B9A0087428D /* ProfileInfo.swift */,
+				7C4848BA29D4A4320087428D /* PostView.swift */,
+				7C4848BC29D4A4600087428D /* PostlineItem.swift */,
 			);
 			path = GuideForum;
 			sourceTree = "<group>";
@@ -169,6 +175,8 @@
 			files = (
 				7C4848B929D49B9A0087428D /* ProfileInfo.swift in Sources */,
 				7C6C851029CB5B7B0074F443 /* ContentView.swift in Sources */,
+				7C4848BB29D4A4320087428D /* PostView.swift in Sources */,
+				7C4848BD29D4A4600087428D /* PostlineItem.swift in Sources */,
 				7C6C850E29CB5B7B0074F443 /* GuideForumApp.swift in Sources */,
 				7C59AE0129D0CB5A0066E8ED /* ProfileView.swift in Sources */,
 				7C4848B529D495860087428D /* HomeView.swift in Sources */,
