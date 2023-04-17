@@ -9,28 +9,20 @@ import Foundation
 import SwiftUI
 
 
-struct BrowseView: View {
-    var body: some View {
-        NavigationView {
-            ZStack {
-                Color.blue
-            }
-            .navigationTitle("Browse")
-        }
-    }
-}
 
 struct TabBarView: View {
+    @ObservedObject var dataModel = DataViewModel()
+    
     
     var body: some View {
         TabView {
-            HomeView()
+            HomeView(dataModel: dataModel)
                 .tabItem{
                     Image(systemName: "house")
                     Text("Home")
                 }
             
-            BrowseView()
+            BrowseView(dataModel: dataModel)
                 .tabItem {
                     Image(systemName: "sparkle.magnifyingglass")
                     Text("Browse")

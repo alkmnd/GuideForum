@@ -11,7 +11,6 @@
 		7C4848B729D49B700087428D /* ProfileLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4848B629D49B700087428D /* ProfileLink.swift */; };
 		7C4848B929D49B9A0087428D /* ProfileInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4848B829D49B9A0087428D /* ProfileInfo.swift */; };
 		7C4848BB29D4A4320087428D /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4848BA29D4A4320087428D /* PostView.swift */; };
-		7C4848BD29D4A4600087428D /* PostlineItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4848BC29D4A4600087428D /* PostlineItem.swift */; };
 		7C59ADFF29CE57B30066E8ED /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C59ADFE29CE57B30066E8ED /* TabBarView.swift */; };
 		7C59AE0129D0CB5A0066E8ED /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C59AE0029D0CB5A0066E8ED /* ProfileView.swift */; };
 		7C6C850E29CB5B7B0074F443 /* GuideForumApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6C850D29CB5B7B0074F443 /* GuideForumApp.swift */; };
@@ -21,6 +20,13 @@
 		7C6C851D29CCA15C0074F443 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 7C6C851C29CCA15C0074F443 /* FirebaseAuth */; };
 		7C6C851F29CCA15C0074F443 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 7C6C851E29CCA15C0074F443 /* FirebaseFirestore */; };
 		7C6C852329CCACEA0074F443 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7C6C852229CCACEA0074F443 /* GoogleService-Info.plist */; };
+		7CC2D1DE29E35217009C4A9F /* BrowseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC2D1DD29E35217009C4A9F /* BrowseView.swift */; };
+		7CC8DB5529E59F2D00C4EC4D /* NewPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC8DB5429E59F2D00C4EC4D /* NewPostView.swift */; };
+		7CC8DB5729ED99A600C4EC4D /* DataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC8DB5629ED99A600C4EC4D /* DataViewModel.swift */; };
+		7CC8DB5A29ED9AAE00C4EC4D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC8DB5929ED9AAE00C4EC4D /* User.swift */; };
+		7CC8DB5D29ED9DB900C4EC4D /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC8DB5C29ED9DB900C4EC4D /* Post.swift */; };
+		7CC8DB5F29ED9E0D00C4EC4D /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC8DB5E29ED9E0D00C4EC4D /* PostViewModel.swift */; };
+		7CC8DB6429EDAE3100C4EC4D /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC8DB6329EDAE3100C4EC4D /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,7 +34,6 @@
 		7C4848B629D49B700087428D /* ProfileLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileLink.swift; sourceTree = "<group>"; };
 		7C4848B829D49B9A0087428D /* ProfileInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfo.swift; sourceTree = "<group>"; };
 		7C4848BA29D4A4320087428D /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
-		7C4848BC29D4A4600087428D /* PostlineItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostlineItem.swift; sourceTree = "<group>"; };
 		7C59ADFE29CE57B30066E8ED /* TabBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		7C59AE0029D0CB5A0066E8ED /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		7C6C850A29CB5B7B0074F443 /* GuideForum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GuideForum.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -37,6 +42,14 @@
 		7C6C851129CB5B7D0074F443 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7C6C851429CB5B7D0074F443 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7C6C852229CCACEA0074F443 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		7CC2D1DD29E35217009C4A9F /* BrowseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowseView.swift; sourceTree = "<group>"; };
+		7CC8DB5329E57D9A00C4EC4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		7CC8DB5429E59F2D00C4EC4D /* NewPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostView.swift; sourceTree = "<group>"; };
+		7CC8DB5629ED99A600C4EC4D /* DataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataViewModel.swift; sourceTree = "<group>"; };
+		7CC8DB5929ED9AAE00C4EC4D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		7CC8DB5C29ED9DB900C4EC4D /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		7CC8DB5E29ED9E0D00C4EC4D /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
+		7CC8DB6329EDAE3100C4EC4D /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,18 +84,15 @@
 		7C6C850C29CB5B7B0074F443 /* GuideForum */ = {
 			isa = PBXGroup;
 			children = (
+				7CC8DB6029ED9EA500C4EC4D /* Views */,
+				7CC8DB5B29ED9CA800C4EC4D /* ViewModels */,
+				7CC8DB5829ED9A8800C4EC4D /* Models */,
+				7CC8DB5329E57D9A00C4EC4D /* Info.plist */,
 				7C6C850D29CB5B7B0074F443 /* GuideForumApp.swift */,
 				7C6C850F29CB5B7B0074F443 /* ContentView.swift */,
 				7C6C852229CCACEA0074F443 /* GoogleService-Info.plist */,
 				7C6C851129CB5B7D0074F443 /* Assets.xcassets */,
 				7C6C851329CB5B7D0074F443 /* Preview Content */,
-				7C59ADFE29CE57B30066E8ED /* TabBarView.swift */,
-				7C59AE0029D0CB5A0066E8ED /* ProfileView.swift */,
-				7C4848B429D495860087428D /* HomeView.swift */,
-				7C4848B629D49B700087428D /* ProfileLink.swift */,
-				7C4848B829D49B9A0087428D /* ProfileInfo.swift */,
-				7C4848BA29D4A4320087428D /* PostView.swift */,
-				7C4848BC29D4A4600087428D /* PostlineItem.swift */,
 			);
 			path = GuideForum;
 			sourceTree = "<group>";
@@ -93,6 +103,40 @@
 				7C6C851429CB5B7D0074F443 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		7CC8DB5829ED9A8800C4EC4D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7CC8DB5929ED9AAE00C4EC4D /* User.swift */,
+				7CC8DB5C29ED9DB900C4EC4D /* Post.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		7CC8DB5B29ED9CA800C4EC4D /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				7CC8DB5629ED99A600C4EC4D /* DataViewModel.swift */,
+				7CC8DB5E29ED9E0D00C4EC4D /* PostViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		7CC8DB6029ED9EA500C4EC4D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7C59AE0029D0CB5A0066E8ED /* ProfileView.swift */,
+				7C4848B429D495860087428D /* HomeView.swift */,
+				7C59ADFE29CE57B30066E8ED /* TabBarView.swift */,
+				7CC2D1DD29E35217009C4A9F /* BrowseView.swift */,
+				7C4848BA29D4A4320087428D /* PostView.swift */,
+				7C4848B829D49B9A0087428D /* ProfileInfo.swift */,
+				7CC8DB5429E59F2D00C4EC4D /* NewPostView.swift */,
+				7C4848B629D49B700087428D /* ProfileLink.swift */,
+				7CC8DB6329EDAE3100C4EC4D /* SettingsView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -173,12 +217,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7CC8DB5F29ED9E0D00C4EC4D /* PostViewModel.swift in Sources */,
+				7CC8DB5A29ED9AAE00C4EC4D /* User.swift in Sources */,
 				7C4848B929D49B9A0087428D /* ProfileInfo.swift in Sources */,
 				7C6C851029CB5B7B0074F443 /* ContentView.swift in Sources */,
+				7CC2D1DE29E35217009C4A9F /* BrowseView.swift in Sources */,
 				7C4848BB29D4A4320087428D /* PostView.swift in Sources */,
-				7C4848BD29D4A4600087428D /* PostlineItem.swift in Sources */,
+				7CC8DB5D29ED9DB900C4EC4D /* Post.swift in Sources */,
+				7CC8DB5529E59F2D00C4EC4D /* NewPostView.swift in Sources */,
+				7CC8DB6429EDAE3100C4EC4D /* SettingsView.swift in Sources */,
 				7C6C850E29CB5B7B0074F443 /* GuideForumApp.swift in Sources */,
 				7C59AE0129D0CB5A0066E8ED /* ProfileView.swift in Sources */,
+				7CC8DB5729ED99A600C4EC4D /* DataViewModel.swift in Sources */,
 				7C4848B529D495860087428D /* HomeView.swift in Sources */,
 				7C59ADFF29CE57B30066E8ED /* TabBarView.swift in Sources */,
 				7C4848B729D49B700087428D /* ProfileLink.swift in Sources */,
@@ -312,9 +362,9 @@
 				DEVELOPMENT_ASSET_PATHS = "\"GuideForum/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GuideForum/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -340,9 +390,9 @@
 				DEVELOPMENT_ASSET_PATHS = "\"GuideForum/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GuideForum/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
