@@ -10,6 +10,7 @@ import SwiftUI
 
 struct BrowseView: View {
     @ObservedObject var dataModel: DataViewModel
+    @ObservedObject var userModel: UserViewModel
     @Environment(\.isSearching) var isSearching
     @State var searchText = ""
     
@@ -27,14 +28,14 @@ struct BrowseView: View {
                 List {
                     Section("Posts") {
                         ForEach(dataModel.posts.filter({searchText.isEmpty ? true : $0.title.contains(searchText)}), id: \.id) { post in
-                            NavigationLink(destination: PostView(post: post, dataModel: dataModel)) {
+                            NavigationLink(destination: PostView(post: post, dataModel: dataModel, userModel: userModel)) {
                                 PostRow(postModel: PostViewModel(post: post))
                             }
                         }
                     }
                     Section("Users") {
                         ForEach(dataModel.users.filter({searchText.isEmpty ? true : $0.name.contains(searchText)}), id: \.id) { user in
-                            NavigationLink(destination: ProfilePage(user: user, dataModel: dataModel)) {
+                            NavigationLink(destination: ProfilePage(user: user, userModel: userModel, dataModel: dataModel)) {
                                 UserCard(creator: user, dataModel: dataModel)
                             }
                         }
@@ -48,7 +49,7 @@ struct BrowseView: View {
 
 struct BrowseView_Previews: PreviewProvider {
     static var previews: some View {
-        BrowseView(dataModel: DataViewModel())
+        BrowseView(dataModel: DataViewModel(), userModel: UserViewModel())
         
     }
 }

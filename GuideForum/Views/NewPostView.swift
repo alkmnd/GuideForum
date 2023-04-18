@@ -10,6 +10,8 @@ import SwiftUI
 import Combine
 
 struct NewPostView: View {
+    @ObservedObject var dataModel: DataViewModel
+    @ObservedObject var userModel: UserViewModel
     @State private var title = ""
     @State private var description = ""
     @State private var content = ""
@@ -55,6 +57,7 @@ struct NewPostView: View {
                     .foregroundColor(Color(.black)),
                 trailing:
                     Button(action: {
+                        dataModel.posts.append(Post(title: title, description: description, text: content, isFavorite: false, creator: userModel.user))
                         dismiss()
                 
                     }){
@@ -77,7 +80,7 @@ struct NewPostView: View {
 
 struct NewPostView_Previews: PreviewProvider {
     static var previews: some View {
-        NewPostView()
+        NewPostView(dataModel: DataViewModel(), userModel: UserViewModel())
         
     }
 }

@@ -15,6 +15,7 @@ struct HomeView: View {
     @State private var showingDetail = false
     @State private var showingSheet = false
     @ObservedObject var dataModel: DataViewModel
+    @ObservedObject var userModel: UserViewModel
     
     func changeFavorite(post: inout Post) {
         if post.isFavorite == true {
@@ -35,12 +36,11 @@ struct HomeView: View {
         return preview
     }
     var body: some View {
-//        NavigationView {
-        
+        NavigationView {
             NavigationStack {
                 List {
                     ForEach(dataModel.posts, id: \.id) { post in
-                        NavigationLink(destination: PostView(post: post, dataModel: dataModel)) {
+                        NavigationLink(destination: PostView(post: post, dataModel: dataModel, userModel: userModel )) {
                             PostRow(postModel: PostViewModel(post: post))
                             
                         }
@@ -66,12 +66,12 @@ struct HomeView: View {
                             
                         }
                         .sheet(isPresented: $showingSheet) {
-                            NewPostView()
+                            NewPostView(dataModel: dataModel, userModel: userModel)
                         })
             }
             
             
-//        }
+        }
         
     }
     
@@ -83,7 +83,7 @@ struct HomeView: View {
     
     struct HomeView_Previews: PreviewProvider {
         static var previews: some View {
-            HomeView(dataModel: DataViewModel())
+            HomeView(dataModel: DataViewModel(), userModel: UserViewModel())
             
         }
     }
@@ -122,7 +122,6 @@ struct PostRow: View {
             }
         }) {
             if postModel.post.isFavorite == false {
-                
                 Image(systemName: "bookmark")
                     .resizable()
                     .frame(width: 30, height: 30)

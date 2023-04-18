@@ -12,6 +12,7 @@ import Firebase
 struct ProfileView: View {
     @State private var showingSheet = false
     @ObservedObject var userModel: UserViewModel
+    @ObservedObject var dataModel: DataViewModel
 //    @State var user: User
     @Environment(\.dismiss) var dismiss
     let profileLinkNames: [String] = ["Saved Tutorials", "Followers", "Following", "My Posts"]
@@ -20,7 +21,7 @@ struct ProfileView: View {
             ZStack {
                 VStack {
                     ProfileInfo(user: userModel.user)
-                    ProfileLink()
+                    ProfileLink(userModel: userModel, dataModel: dataModel)
                     Spacer()
                     Button(action: {
                         let firebaseAuth = Auth.auth()
@@ -62,7 +63,7 @@ struct ProfileView: View {
 
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileView(userModel: UserViewModel())
+        ProfileView(userModel: UserViewModel(), dataModel: DataViewModel())
         
     }
 }

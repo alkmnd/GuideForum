@@ -7,11 +7,17 @@
 import SwiftUI
 
 struct ProfileLink: View {
+    @ObservedObject var userModel: UserViewModel
+    @ObservedObject var dataModel: DataViewModel
     let profileLinkNames: [String] = ["Saved Tutorials", "Folowers", "Following", "My Posts"]
     var body: some View {
         VStack {
             ForEach(profileLinkNames, id: \.self) { profileLinkName in
-                NavigationLink(destination: Text("")) {
+                NavigationLink(destination: { if profileLinkName == "Following"{ FollowingsList(userModel: userModel, dataModel: dataModel)} else {
+                    Text("")
+                }
+                }
+                    ) {
                     VStack(spacing: 0) {
                         HStack {
                             Text(profileLinkName)

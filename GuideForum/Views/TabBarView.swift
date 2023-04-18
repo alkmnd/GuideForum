@@ -16,19 +16,19 @@ struct TabBarView: View {
     
     var body: some View {
         TabView {
-            HomeView(dataModel: dataModel)
+            HomeView(dataModel: dataModel, userModel: userModel)
                 .tabItem{
                     Image(systemName: "house")
                     Text("Home")
                 }
             
-            BrowseView(dataModel: dataModel)
+            BrowseView(dataModel: dataModel, userModel: userModel)
                 .tabItem {
                     Image(systemName: "sparkle.magnifyingglass")
                     Text("Browse")
                 }
             
-            ProfileView(userModel: userModel)
+            ProfileView(userModel: userModel, dataModel: dataModel)
                 .tabItem {
                     Image(systemName: "person.circle.fill")
                     Text("Profile")
