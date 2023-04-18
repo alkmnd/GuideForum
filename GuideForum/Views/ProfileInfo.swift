@@ -9,16 +9,17 @@ import Foundation
 import SwiftUI
 
 struct ProfileInfo: View {
+    var user: User
     var body: some View {
         VStack(spacing: 20) {
-            Text("Awesome Name")
+            Text(user.name)
                 .fontWeight(.bold)
                 .font(.system(size: 25))
                 .padding(.top, 20)
-            Text("@login")
-                .font(.system(size: 20))
-                .padding(.top, -20)
-                .foregroundColor(Color(.darkGray))
+//            Text("@login")
+//                .font(.system(size: 20))
+//                .padding(.top, -20)
+//                .foregroundColor(Color(.darkGray))
             ZStack {
                 RoundedRectangle(cornerRadius: 30, style: .continuous)
                     .foregroundStyle(.linearGradient(colors: [.green, .blue], startPoint: .topLeading, endPoint: .bottomTrailing))

@@ -7,16 +7,33 @@
 
 import Foundation
 import SwiftUI
+import Firebase
 
 struct ProfileView: View {
-    let profileLinkNames: [String] = ["Saved Tutorials", "Folowers", "Following", "My Posts"]
+    @State private var showingSheet = false
+    @ObservedObject var userModel: UserViewModel
+//    @State var user: User
+    @Environment(\.dismiss) var dismiss
+    let profileLinkNames: [String] = ["Saved Tutorials", "Followers", "Following", "My Posts"]
     var body: some View {
         NavigationView {
             ZStack {
                 VStack {
-                    ProfileInfo()
+                    ProfileInfo(user: userModel.user)
                     ProfileLink()
                     Spacer()
+                    Button(action: {
+                        let firebaseAuth = Auth.auth()
+                        do {
+                          try firebaseAuth.signOut()
+//                            LoginView()
+                            dismiss()
+                        } catch let signOutError as NSError {
+                          print("Error signing out: %@", signOutError)
+                        }
+                    }) {
+                        Text("Sign out")
+                    }
                 }
             }
             .navigationBarItems(
@@ -26,10 +43,17 @@ struct ProfileView: View {
                         .fontWeight(.bold)
                         .foregroundColor(Color(.systemGray)),
                 trailing:
-                    NavigationLink(destination: Text(""))  {
+                    Button(action: {
+                        showingSheet.toggle()
+                
+                    })  {
+                        
                         Image(systemName: "gearshape")
                             .resizable()
                         .frame(width: 30, height: 30)}
+                    .sheet(isPresented: $showingSheet) {
+                        EditView()
+                    }
                     .buttonStyle(PlainButtonStyle()))
                     
                 }
@@ -38,7 +62,7 @@ struct ProfileView: View {
 
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileView()
+        ProfileView(userModel: UserViewModel())
         
     }
 }

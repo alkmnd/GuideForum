@@ -17,4 +17,5 @@ final class PostViewModel: ObservableObject {
 //        self.user = user
         self.post = post
     }
+
 }

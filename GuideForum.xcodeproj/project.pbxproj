@@ -26,7 +26,13 @@
 		7CC8DB5A29ED9AAE00C4EC4D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC8DB5929ED9AAE00C4EC4D /* User.swift */; };
 		7CC8DB5D29ED9DB900C4EC4D /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC8DB5C29ED9DB900C4EC4D /* Post.swift */; };
 		7CC8DB5F29ED9E0D00C4EC4D /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC8DB5E29ED9E0D00C4EC4D /* PostViewModel.swift */; };
-		7CC8DB6429EDAE3100C4EC4D /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC8DB6329EDAE3100C4EC4D /* SettingsView.swift */; };
+		7CC8DB6629EDC57900C4EC4D /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC8DB6529EDC57900C4EC4D /* EditView.swift */; };
+		7CC8DB6829EDE1D200C4EC4D /* UserCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC8DB6729EDE1D200C4EC4D /* UserCard.swift */; };
+		7CC8DB6A29EDE3EC00C4EC4D /* PostList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC8DB6929EDE3EC00C4EC4D /* PostList.swift */; };
+		7CC8DB6C29EDE9E300C4EC4D /* ProfilePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC8DB6B29EDE9E300C4EC4D /* ProfilePage.swift */; };
+		7CC8DB6E29EDEAD100C4EC4D /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC8DB6D29EDEAD100C4EC4D /* UserViewModel.swift */; };
+		7CC8DB7029EDFFBE00C4EC4D /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC8DB6F29EDFFBE00C4EC4D /* LoginView.swift */; };
+		7CC8DB7229EF150C00C4EC4D /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC8DB7129EF150C00C4EC4D /* SearchBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,7 +55,13 @@
 		7CC8DB5929ED9AAE00C4EC4D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		7CC8DB5C29ED9DB900C4EC4D /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		7CC8DB5E29ED9E0D00C4EC4D /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
-		7CC8DB6329EDAE3100C4EC4D /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		7CC8DB6529EDC57900C4EC4D /* EditView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = "<group>"; };
+		7CC8DB6729EDE1D200C4EC4D /* UserCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCard.swift; sourceTree = "<group>"; };
+		7CC8DB6929EDE3EC00C4EC4D /* PostList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostList.swift; sourceTree = "<group>"; };
+		7CC8DB6B29EDE9E300C4EC4D /* ProfilePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePage.swift; sourceTree = "<group>"; };
+		7CC8DB6D29EDEAD100C4EC4D /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		7CC8DB6F29EDFFBE00C4EC4D /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		7CC8DB7129EF150C00C4EC4D /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +131,7 @@
 			children = (
 				7CC8DB5629ED99A600C4EC4D /* DataViewModel.swift */,
 				7CC8DB5E29ED9E0D00C4EC4D /* PostViewModel.swift */,
+				7CC8DB6D29EDEAD100C4EC4D /* UserViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -133,8 +146,13 @@
 				7C4848BA29D4A4320087428D /* PostView.swift */,
 				7C4848B829D49B9A0087428D /* ProfileInfo.swift */,
 				7CC8DB5429E59F2D00C4EC4D /* NewPostView.swift */,
+				7CC8DB6529EDC57900C4EC4D /* EditView.swift */,
 				7C4848B629D49B700087428D /* ProfileLink.swift */,
-				7CC8DB6329EDAE3100C4EC4D /* SettingsView.swift */,
+				7CC8DB6729EDE1D200C4EC4D /* UserCard.swift */,
+				7CC8DB6929EDE3EC00C4EC4D /* PostList.swift */,
+				7CC8DB6B29EDE9E300C4EC4D /* ProfilePage.swift */,
+				7CC8DB6F29EDFFBE00C4EC4D /* LoginView.swift */,
+				7CC8DB7129EF150C00C4EC4D /* SearchBar.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -217,20 +235,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7CC8DB6C29EDE9E300C4EC4D /* ProfilePage.swift in Sources */,
 				7CC8DB5F29ED9E0D00C4EC4D /* PostViewModel.swift in Sources */,
 				7CC8DB5A29ED9AAE00C4EC4D /* User.swift in Sources */,
 				7C4848B929D49B9A0087428D /* ProfileInfo.swift in Sources */,
 				7C6C851029CB5B7B0074F443 /* ContentView.swift in Sources */,
 				7CC2D1DE29E35217009C4A9F /* BrowseView.swift in Sources */,
 				7C4848BB29D4A4320087428D /* PostView.swift in Sources */,
+				7CC8DB6829EDE1D200C4EC4D /* UserCard.swift in Sources */,
 				7CC8DB5D29ED9DB900C4EC4D /* Post.swift in Sources */,
 				7CC8DB5529E59F2D00C4EC4D /* NewPostView.swift in Sources */,
-				7CC8DB6429EDAE3100C4EC4D /* SettingsView.swift in Sources */,
 				7C6C850E29CB5B7B0074F443 /* GuideForumApp.swift in Sources */,
+				7CC8DB6629EDC57900C4EC4D /* EditView.swift in Sources */,
 				7C59AE0129D0CB5A0066E8ED /* ProfileView.swift in Sources */,
+				7CC8DB6E29EDEAD100C4EC4D /* UserViewModel.swift in Sources */,
+				7CC8DB7229EF150C00C4EC4D /* SearchBar.swift in Sources */,
 				7CC8DB5729ED99A600C4EC4D /* DataViewModel.swift in Sources */,
 				7C4848B529D495860087428D /* HomeView.swift in Sources */,
+				7CC8DB6A29EDE3EC00C4EC4D /* PostList.swift in Sources */,
 				7C59ADFF29CE57B30066E8ED /* TabBarView.swift in Sources */,
+				7CC8DB7029EDFFBE00C4EC4D /* LoginView.swift in Sources */,
 				7C4848B729D49B700087428D /* ProfileLink.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

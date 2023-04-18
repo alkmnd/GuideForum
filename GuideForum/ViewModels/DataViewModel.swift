@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import SwiftUI
 
 final class DataViewModel: ObservableObject {
     @Published var users = [User]()
@@ -28,5 +29,16 @@ final class DataViewModel: ObservableObject {
             Post(title: "How to make a greate dinner", description:
                     "Description", text: "Awesome text", isFavorite: false, creator: users[2])
         ]
+        
+    }
+    
+    func getPostByUserId(user: User) -> [Post] {
+        var postsFound = [Post]()
+        for i in posts {
+            if i.creator.id == user.id{
+                postsFound.append(i)
+            }
+        }
+        return postsFound
     }
 }

@@ -12,7 +12,7 @@ import SwiftUI
 
 struct TabBarView: View {
     @ObservedObject var dataModel = DataViewModel()
-    
+    @ObservedObject var userModel = UserViewModel()
     
     var body: some View {
         TabView {
@@ -28,7 +28,7 @@ struct TabBarView: View {
                     Text("Browse")
                 }
             
-            ProfileView()
+            ProfileView(userModel: userModel)
                 .tabItem {
                     Image(systemName: "person.circle.fill")
                     Text("Profile")

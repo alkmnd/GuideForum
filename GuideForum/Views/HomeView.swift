@@ -29,21 +29,22 @@ struct HomeView: View {
         if post.text.count < 20 {
             preview = post.text
         } else {
-            //            preview = post.text.prefix(15)
             let index = post.text.index(post.text.startIndex, offsetBy: 20)
             preview = String(post.text.prefix(upTo: index))
         }
         return preview
     }
     var body: some View {
-        NavigationView {
+//        NavigationView {
+        
             NavigationStack {
                 List {
                     ForEach(dataModel.posts, id: \.id) { post in
-                        NavigationLink(destination: PostView(post: post)) {
+                        NavigationLink(destination: PostView(post: post, dataModel: dataModel)) {
                             PostRow(postModel: PostViewModel(post: post))
                             
                         }
+                
                     }
                 }
                 .navigationTitle("For you")
@@ -70,7 +71,7 @@ struct HomeView: View {
             }
             
             
-        }
+//        }
         
     }
     
@@ -78,9 +79,6 @@ struct HomeView: View {
 }
     
 
-    
-    
-    
     
     
     struct HomeView_Previews: PreviewProvider {
@@ -117,7 +115,6 @@ struct PostRow: View {
             .foregroundColor(.black)
             .font(.system(size: 26))
         Button(action: {
-//            postModel.post.changeFavorite()
             if postModel.post.isFavorite == false {
                 postModel.post.isFavorite = true
             } else {
@@ -125,7 +122,7 @@ struct PostRow: View {
             }
         }) {
             if postModel.post.isFavorite == false {
-    
+                
                 Image(systemName: "bookmark")
                     .resizable()
                     .frame(width: 30, height: 30)
@@ -140,23 +137,6 @@ struct PostRow: View {
     }
         
         
-        //    extension PostRow {
-        //        class ViewModel: ObservableObject {
-        //            @Published private(set) var post: Post
-        //
-        //            init(post:Post) {
-        //                self.post = post
-        //            }
-        //
-        //            func changeFavorite() {
-        //                if post.isFavorite == true {
-        //                    post.isFavorite = false
-        //                } else {
-        //                    post.isFavorite = true
-        //                }
-        //            }
-        //        }
-        //    }
     }
 }
 

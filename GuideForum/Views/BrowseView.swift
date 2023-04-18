@@ -10,9 +10,37 @@ import SwiftUI
 
 struct BrowseView: View {
     @ObservedObject var dataModel: DataViewModel
+    @Environment(\.isSearching) var isSearching
+    @State var searchText = ""
+    
+    @State var filteredPosts = [Post]()
+    
+    @State var filteredUsers = [User]()
+    
+    
+    
+    
     var body: some View {
-        ZStack() {
-            
+        VStack() {
+            NavigationStack {
+                SearchBar(text: $searchText)
+                List {
+                    Section("Posts") {
+                        ForEach(dataModel.posts.filter({searchText.isEmpty ? true : $0.title.contains(searchText)}), id: \.id) { post in
+                            NavigationLink(destination: PostView(post: post, dataModel: dataModel)) {
+                                PostRow(postModel: PostViewModel(post: post))
+                            }
+                        }
+                    }
+                    Section("Users") {
+                        ForEach(dataModel.users.filter({searchText.isEmpty ? true : $0.name.contains(searchText)}), id: \.id) { user in
+                            NavigationLink(destination: ProfilePage(user: user, dataModel: dataModel)) {
+                                UserCard(creator: user, dataModel: dataModel)
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
    
