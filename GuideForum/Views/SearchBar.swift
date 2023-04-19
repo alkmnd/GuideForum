@@ -8,9 +8,13 @@
 import Foundation
 import SwiftUI
  
+// Custom search bar.
 struct SearchBar: View {
+    
+    // input text.
     @Binding var text: String
  
+    // Shows that text is editing currently.
     @State private var isEditing = false
  
     var body: some View {

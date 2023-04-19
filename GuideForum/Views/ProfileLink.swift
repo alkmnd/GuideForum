@@ -7,9 +7,11 @@
 import SwiftUI
 
 struct ProfileLink: View {
+    
     @ObservedObject var userModel: UserViewModel
     @ObservedObject var dataModel: DataViewModel
     let profileLinkNames: [String] = ["Saved Tutorials", "Followers", "Following", "My Posts"]
+    
     var body: some View {
         VStack {
             ForEach(profileLinkNames, id: \.self) { profileLinkName in

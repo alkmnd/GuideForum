@@ -67,9 +67,6 @@ struct NewPostView: View {
                             .foregroundColor(Color(.systemGray))
                         
                     }).ignoresSafeArea()
-//                    .onTapGesture {
-//                            self.presentationMode.wrappedValue.dismiss()
-//                        })
         
                 }
         .ignoresSafeArea()

@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 
-
+// Shows bottom tab bar.
 struct TabBarView: View {
     @ObservedObject var dataModel = DataViewModel()
     @ObservedObject var userModel = UserViewModel()

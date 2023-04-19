@@ -9,12 +9,17 @@ import Foundation
 import SwiftUI
 import Firebase
 
+// Struct for showing view to sign up or sign in.
 struct LoginView: View {
+    
+    // Fields to fill.
     @State private var email = ""
     @State private var password = ""
+    @State private var name = ""
     @State var userIsLoggedIn = false
     
     var body: some View {
+        // Choosing correct view to show.
         if userIsLoggedIn {
             TabBarView()
         } else {
@@ -35,6 +40,17 @@ struct LoginView: View {
                     .foregroundColor(.white)
                     .font(.system(size:40, weight:.bold, design: .rounded))
                     .offset(x:-100, y: -100)
+                TextField("Name", text: $name)
+                    .foregroundColor(.white)
+                    .textFieldStyle(.plain)
+                    .placeholder(when: name.isEmpty) {
+                        Text("Name (if you don't have an account)")
+                            .foregroundColor(.white)
+                            .bold()
+                    }
+                Rectangle()
+                    .frame(width: 350, height: 1)
+                    .foregroundColor(.white)
                 TextField("Email", text: $email)
                     .foregroundColor(.white)
                     .textFieldStyle(.plain)
@@ -95,6 +111,7 @@ struct LoginView: View {
         }
         .ignoresSafeArea()
     }
+    
     func login() {
         Auth.auth().signIn(withEmail: email, password: password) { result, error in
             if error != nil {

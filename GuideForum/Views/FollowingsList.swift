@@ -8,9 +8,12 @@
 import Foundation
 import SwiftUI
 
+// Struct ro present followings in list.
 struct FollowingsList: View {
+    
     @ObservedObject var userModel: UserViewModel
     @ObservedObject var dataModel: DataViewModel
+    
     var body: some View {
         NavigationStack {
             if userModel.followings.count == 0 {

@@ -8,18 +8,19 @@
 import Foundation
 import SwiftUI
 
+// Shows View for search users or posts.
 struct BrowseView: View {
+    
     @ObservedObject var dataModel: DataViewModel
     @ObservedObject var userModel: UserViewModel
+    
+    // Create variable to dismiss this view.
     @Environment(\.isSearching) var isSearching
     @State var searchText = ""
     
     @State var filteredPosts = [Post]()
     
     @State var filteredUsers = [User]()
-    
-    
-    
     
     var body: some View {
         VStack() {

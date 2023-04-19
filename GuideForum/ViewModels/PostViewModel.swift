@@ -11,10 +11,7 @@ import Combine
 final class PostViewModel: ObservableObject {
     @Published var post: Post
     
-//    @Published var user: User
-    
     init(post: Post) {
-//        self.user = user
         self.post = post
     }
 

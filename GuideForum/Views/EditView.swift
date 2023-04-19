@@ -8,16 +8,16 @@
 import Foundation
 import SwiftUI 
 
+// Shows view for editing user profile.
 struct EditView: View {
+    
+    @ObservedObject var userModel: UserViewModel
     @Environment(\.dismiss) var dismiss
-    @State private var name: String = "Awesome Name"
-    @State private var status: String = "Awesome status"
-    @State private var image: String = "camera.circle.fill"
     
     var body: some View {
         NavigationView {
             VStack {
-                TextField("", text: $name)
+                TextField("", text: $userModel.user.name)
                     .fontWeight(.bold)
                     .font(.system(size: 25))
                     .padding(10)
@@ -25,9 +25,8 @@ struct EditView: View {
                     .textInputAutocapitalization(.never)
                     .disableAutocorrection(true)
                 Divider()
-                TextField("",text: $status)
+                TextField("",text: $userModel.user.status)
                     .font(.system(size: 20))
-                //                    .padding(.top, -20)
                     .foregroundColor(Color(.darkGray))
                     .padding(10)
                 ZStack {
@@ -54,10 +53,6 @@ struct EditView: View {
                         dismiss()
                         
                     }){
-                        //                        Image(systemName: "square.and.arrow.up.circle.fill")
-                        //                            .resizable()
-                        //                            .frame(width: 30, height: 30)
-                        //                            .foregroundColor(Color(.systemGray))
                         Text("Save")
                         
                     })
@@ -68,7 +63,7 @@ struct EditView: View {
 
 struct EditView_Previews: PreviewProvider {
     static var previews: some View {
-        EditView()
+        EditView(userModel: UserViewModel())
         
     }
 }

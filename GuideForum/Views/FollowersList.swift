@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 
+// Strcut to present a list of followers.
 struct FollowersList: View {
     @ObservedObject var userModel: UserViewModel
     @ObservedObject var dataModel: DataViewModel

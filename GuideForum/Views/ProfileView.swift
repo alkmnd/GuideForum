@@ -9,13 +9,18 @@ import Foundation
 import SwiftUI
 import Firebase
 
+// Showing user profile.
 struct ProfileView: View {
+    
     @State private var showingSheet = false
     @ObservedObject var userModel: UserViewModel
     @ObservedObject var dataModel: DataViewModel
-//    @State var user: User
+
+    // Create variable to dismiss this view.
     @Environment(\.dismiss) var dismiss
+    
     let profileLinkNames: [String] = ["Saved Tutorials", "Followers", "Following", "My Posts"]
+    
     var body: some View {
         NavigationView {
             ZStack {
@@ -23,11 +28,11 @@ struct ProfileView: View {
                     ProfileInfo(user: userModel.user)
                     ProfileLink(userModel: userModel, dataModel: dataModel)
                     Spacer()
+                    
                     Button(action: {
                         let firebaseAuth = Auth.auth()
                         do {
                           try firebaseAuth.signOut()
-//                            LoginView()
                             dismiss()
                         } catch let signOutError as NSError {
                           print("Error signing out: %@", signOutError)

@@ -8,11 +8,14 @@
 import Foundation
 import SwiftUI
 
+// Shows Post.
 struct PostView: View {
+    
     var post: Post
     @State private var showingSheet = false
     @ObservedObject var dataModel: DataViewModel
     @ObservedObject var userModel: UserViewModel
+    
     var body: some View {
         
         VStack(alignment: .leading, spacing: 10) {
@@ -24,11 +27,8 @@ struct PostView: View {
                                         .sheet(isPresented: $showingSheet) {
                                             ProfilePage(user: post.creator, userModel: userModel, dataModel: dataModel)
                                         }
-//                                        .buttonStyle(PlainButtonStyle())
             Text("\(post.title)")
-//                .foregroundColor(.black)
                 .fontWeight(.bold)
-//                .font(.system(size: 34))
                 .font(.title)
             
             Text("\(post.description)")
@@ -50,8 +50,6 @@ struct PostView: View {
             }
         }
         .padding()
-//        .ignoresSafeArea()
-
     }
 }
 
