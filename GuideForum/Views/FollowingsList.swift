@@ -13,6 +13,7 @@ struct FollowingsList: View {
     
     @ObservedObject var userModel: UserViewModel
     @ObservedObject var dataModel: DataViewModel
+    @State private var showingSheet = false
     
     var body: some View {
         NavigationStack {
@@ -22,8 +23,15 @@ struct FollowingsList: View {
             } else {
                 List {
                     ForEach(userModel.followings, id: \.id) { user in
-                        NavigationLink(destination: ProfilePage(user: user, userModel: userModel, dataModel: dataModel)) {
+                        Button(action: {
+                            showingSheet.toggle()
+                        }) {
                             UserCard(user: user, dataModel: dataModel)
+                        }
+                        .buttonStyle(PlainButtonStyle())
+                        
+                        .sheet(isPresented: $showingSheet) {
+                            ProfilePage(user: user, userModel: userModel, dataModel: dataModel)
                         }
                     }
                 }
@@ -31,3 +39,4 @@ struct FollowingsList: View {
         }
     }
 }
+

@@ -12,4 +12,5 @@ final class UserViewModel: ObservableObject {
     @Published var user = User(name: "Natasha Natasha", email: "blvantla@gmail.com")
     @Published var followers = [User]()
     @Published var followings = [User]()
+    @Published var favoritePosts = [Post]()
 }

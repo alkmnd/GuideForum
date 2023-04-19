@@ -23,7 +23,7 @@ struct HomeView: View {
                 List {
                     ForEach(dataModel.posts, id: \.id) { post in
                         NavigationLink(destination: PostView(post: post, dataModel: dataModel, userModel: userModel )) {
-                            PostRow(postModel: PostViewModel(post: post))
+                            PostRow(postModel: PostViewModel(post: post), userModel: userModel)
                             
                         }
                 

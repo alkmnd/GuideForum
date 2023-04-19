@@ -12,6 +12,7 @@ import SwiftUI
 struct PostRow: View {
     
     @ObservedObject var postModel: PostViewModel
+    @ObservedObject var userModel: UserViewModel
     
     // Getting a content preview.
     func getPreview(post: Post) -> String {
@@ -43,10 +44,13 @@ struct PostRow: View {
         Button(action: {
             
             // Check states.
-            if postModel.post.isFavorite == false {
+            if  postModel.post.isFavorite == false {
                 postModel.post.isFavorite = true
+//                userModel.favoritePosts.append(postModel.post)
             } else {
+//                userModel.favoritePosts.remove(at: userModel.favoritePosts.firstIndex(of: postModel.post)!)
                 postModel.post.isFavorite = false
+                                               
             }
         }) {
             

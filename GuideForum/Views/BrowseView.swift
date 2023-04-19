@@ -30,7 +30,7 @@ struct BrowseView: View {
                     Section("Posts") {
                         ForEach(dataModel.posts.filter({searchText.isEmpty ? true : $0.title.contains(searchText)}), id: \.id) { post in
                             NavigationLink(destination: PostView(post: post, dataModel: dataModel, userModel: userModel)) {
-                                PostRow(postModel: PostViewModel(post: post))
+                                PostRow(postModel: PostViewModel(post: post), userModel: userModel)
                             }
                         }
                     }

@@ -45,7 +45,6 @@ struct NewPostView: View {
                     TextField("Show something great!", text: $content, axis: .vertical)
                     
                 }
-//            .navigationTitle("New Post")
 
             .padding(20)
             .offset(y: -230)
