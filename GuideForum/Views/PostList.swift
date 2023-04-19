@@ -14,6 +14,7 @@ struct PostList: View {
     @ObservedObject var userModel: UserViewModel
     var body: some View {
         NavigationStack {
+<<<<<<< HEAD
             if posts.count == 0 {
                 Text("Nothing here")
                 
@@ -23,6 +24,12 @@ struct PostList: View {
                         NavigationLink(destination: PostView(dataModel: dataModel, userModel: userModel, postModel: PostViewModel(post: post))) {
                             PostRow(postModel: PostViewModel(post: post), userModel: userModel)
                         }
+=======
+            List {
+                ForEach(posts, id: \.id) { post in
+                    NavigationLink(destination: PostView(post: post, dataModel: dataModel, userModel: userModel)) {
+                        PostRow(postModel: PostViewModel(post: post))
+>>>>>>> parent of 41c3274 (added some views)
                     }
                 }
             }

@@ -16,6 +16,10 @@ struct ProfileInfo: View {
                 .fontWeight(.bold)
                 .font(.system(size: 25))
                 .padding(.top, 20)
+//            Text("@login")
+//                .font(.system(size: 20))
+//                .padding(.top, -20)
+//                .foregroundColor(Color(.darkGray))
             ZStack {
                 RoundedRectangle(cornerRadius: 30, style: .continuous)
                     .foregroundStyle(.linearGradient(colors: [.green, .blue], startPoint: .topLeading, endPoint: .bottomTrailing))

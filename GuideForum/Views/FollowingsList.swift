@@ -27,6 +27,8 @@ struct FollowingsList: View {
                             showingSheet.toggle()
                         }) {
                             UserCard(user: user, dataModel: dataModel)
+                        NavigationLink(destination: ProfilePage(user: user, userModel: userModel, dataModel: dataModel)) {
+                            UserCard(creator: user, dataModel: dataModel)
                         }
                         .buttonStyle(PlainButtonStyle())
                         

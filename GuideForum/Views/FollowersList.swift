@@ -6,6 +6,7 @@
 //
 
 import Foundation
+<<<<<<< HEAD
 import SwiftUI
 
 // Strcut to present a list of followers.

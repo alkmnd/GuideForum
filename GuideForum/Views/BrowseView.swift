@@ -37,7 +37,7 @@ struct BrowseView: View {
                     Section("Users") {
                         ForEach(dataModel.users.filter({searchText.isEmpty ? true : $0.name.contains(searchText)}), id: \.id) { user in
                             NavigationLink(destination: ProfilePage(user: user, userModel: userModel, dataModel: dataModel)) {
-                                UserCard(user: user, dataModel: dataModel)
+                                UserCard(creator: user, dataModel: dataModel)
                             }
                         }
                     }

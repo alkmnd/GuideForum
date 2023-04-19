@@ -20,6 +20,7 @@ struct PostView: View {
     var body: some View {
         
         VStack(alignment: .leading, spacing: 10) {
+<<<<<<< HEAD
             Button(action: {
                 showingSheet.toggle()
             }) {
@@ -41,6 +42,31 @@ struct PostView: View {
                         Text("\(postModel.post.text)")
                             .lineLimit(nil)
                             .frame(
+=======
+                    Button(action: {
+                            showingSheet.toggle()
+                        }) {
+            UserCard(creator: post.creator, dataModel: dataModel)
+                                        }
+                                        .sheet(isPresented: $showingSheet) {
+                                            ProfilePage(user: post.creator, userModel: userModel, dataModel: dataModel)
+                                        }
+//                                        .buttonStyle(PlainButtonStyle())
+            Text("\(post.title)")
+//                .foregroundColor(.black)
+                .fontWeight(.bold)
+//                .font(.system(size: 34))
+                .font(.title)
+            
+            Text("\(post.description)")
+                .font(.subheadline)
+                .foregroundColor(Color(.systemGray))
+            GeometryReader {
+                geometry in ScrollView() {
+                    Text("\(post.text)")
+                        .lineLimit(nil)
+                        .frame(
+>>>>>>> parent of 41c3274 (added some views)
                                 minWidth: geometry.size.width,
                                 idealWidth: geometry.size.width,
                                 maxWidth: geometry.size.width,
