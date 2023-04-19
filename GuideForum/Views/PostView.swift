@@ -19,7 +19,7 @@ struct PostView: View {
                     Button(action: {
                             showingSheet.toggle()
                         }) {
-            UserCard(creator: post.creator, dataModel: dataModel)
+            UserCard(user: post.creator, dataModel: dataModel)
                                         }
                                         .sheet(isPresented: $showingSheet) {
                                             ProfilePage(user: post.creator, userModel: userModel, dataModel: dataModel)

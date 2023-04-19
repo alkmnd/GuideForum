@@ -10,21 +10,13 @@ import SwiftUI
 
 struct UserCard: View {
     @State private var showingSheet = false
-    let creator: User
+    let user: User
     @ObservedObject var dataModel: DataViewModel
     
     var body: some View {
         HStack {
-//            Button(action: {
-//                showingSheet.toggle()
-//            }) {
-                Image(systemName: creator.image)
-                Text(creator.name)
-//            }
-//            .sheet(isPresented: $showingSheet) {
-//                ProfilePage(user: creator, dataModel: dataModel)
-//            }
-//            .buttonStyle(PlainButtonStyle())
+                Image(systemName: user.image)
+                Text(user.name)
         }
     }
 }

@@ -20,7 +20,7 @@ struct FollowingsList: View {
                 List {
                     ForEach(userModel.followings, id: \.id) { user in
                         NavigationLink(destination: ProfilePage(user: user, userModel: userModel, dataModel: dataModel)) {
-                            UserCard(creator: user, dataModel: dataModel)
+                            UserCard(user: user, dataModel: dataModel)
                         }
                     }
                 }

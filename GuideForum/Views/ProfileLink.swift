@@ -9,12 +9,21 @@ import SwiftUI
 struct ProfileLink: View {
     @ObservedObject var userModel: UserViewModel
     @ObservedObject var dataModel: DataViewModel
-    let profileLinkNames: [String] = ["Saved Tutorials", "Folowers", "Following", "My Posts"]
+    let profileLinkNames: [String] = ["Saved Tutorials", "Followers", "Following", "My Posts"]
     var body: some View {
         VStack {
             ForEach(profileLinkNames, id: \.self) { profileLinkName in
-                NavigationLink(destination: { if profileLinkName == "Following"{ FollowingsList(userModel: userModel, dataModel: dataModel)} else {
-                    Text("")
+                NavigationLink(destination: { switch profileLinkName {
+                case "Following":
+                    FollowingsList(userModel: userModel, dataModel: dataModel)
+                case "Followers":
+                    FollowersList(userModel: userModel, dataModel: dataModel)
+                case "Saved Tutorials":
+                    PostList(posts: dataModel.posts.filter{$0.isFavorite == true}, dataModel: dataModel, userModel: userModel)
+                case "My Posts":
+                    PostList(posts: dataModel.posts.filter{$0.creator == userModel.user}, dataModel: dataModel, userModel: userModel)
+                default:
+                    Text("Something wrong")
                 }
                 }
                     ) {

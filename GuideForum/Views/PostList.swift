@@ -14,10 +14,15 @@ struct PostList: View {
     @ObservedObject var userModel: UserViewModel
     var body: some View {
         NavigationStack {
-            List {
-                ForEach(posts, id: \.id) { post in
-                    NavigationLink(destination: PostView(post: post, dataModel: dataModel, userModel: userModel)) {
-                        PostRow(postModel: PostViewModel(post: post))
+            if posts.count == 0 {
+                Text("Nothing here")
+                    .foregroundColor(Color(.systemGray))
+            } else {
+                List {
+                    ForEach(posts, id: \.id) { post in
+                        NavigationLink(destination: PostView(post: post, dataModel: dataModel, userModel: userModel)) {
+                            PostRow(postModel: PostViewModel(post: post))
+                        }
                     }
                 }
             }
