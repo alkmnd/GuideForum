@@ -20,7 +20,7 @@ struct PostList: View {
             } else {
                 List {
                     ForEach(posts, id: \.id) { post in
-                        NavigationLink(destination: PostView(post: post, dataModel: dataModel, userModel: userModel)) {
+                        NavigationLink(destination: PostView(dataModel: dataModel, userModel: userModel, postModel: PostViewModel(post: post))) {
                             PostRow(postModel: PostViewModel(post: post), userModel: userModel)
                         }
                     }
