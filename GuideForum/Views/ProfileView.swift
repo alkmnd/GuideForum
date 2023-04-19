@@ -58,7 +58,7 @@ struct ProfileView: View {
                             .resizable()
                         .frame(width: 30, height: 30)}
                     .sheet(isPresented: $showingSheet) {
-                        EditView(userModel: userModel)
+                        EditView()
                     }
                     .buttonStyle(PlainButtonStyle()))
                     
