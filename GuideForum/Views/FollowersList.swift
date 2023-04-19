@@ -4,9 +4,7 @@
 //
 //  Created by 1234 on 18.04.2023.
 //
-
 import Foundation
-<<<<<<< HEAD
 import SwiftUI
 
 // Strcut to present a list of followers.

@@ -48,7 +48,7 @@ struct PostRow: View {
                 postModel.post.isFavorite = true
 //                userModel.favoritePosts.append(postModel.post)
             } else {
-//                userModel.favoritePosts.remove(at: userModel.favoritePosts.firstIndex(of: postModel.post)!)
+//                userModel.favoritePosts.remove(at: userModel.favoritePosts.firstIndex(where: {$0.id == postModel.post.id})!)
                 postModel.post.isFavorite = false
                                                
             }

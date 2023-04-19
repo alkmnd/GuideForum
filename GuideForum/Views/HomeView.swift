@@ -4,7 +4,6 @@
 //
 //  Created by 1234 on 29.03.2023.
 //
-
 import Foundation
 import SwiftUI
 
@@ -22,7 +21,7 @@ struct HomeView: View {
             NavigationStack {
                 List {
                     ForEach(dataModel.posts, id: \.id) { post in
-                        NavigationLink(destination: PostView( dataModel: dataModel, userModel: userModel, postModel: PostViewModel(post: post) )) {
+                        NavigationLink(destination: PostView(post: post, dataModel: dataModel, userModel: userModel, postModel: PostViewModel(post: post))) {
                             PostRow(postModel: PostViewModel(post: post), userModel: userModel)
                             
                         }
@@ -70,4 +69,3 @@ struct HomeView: View {
         }
     }
     
-

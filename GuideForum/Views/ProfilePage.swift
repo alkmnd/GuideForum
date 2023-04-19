@@ -28,7 +28,7 @@ struct ProfilePage: View {
                     Text("Follow")
                 }
             }.padding(.top, 5)
-            PostList(posts: dataModel.getPostByUserId(user: user), dataModel: dataModel, userModel: userModel)
+            PostList(posts: dataModel.getPostByUserId(user: user), dataModel: dataModel, userModel: userModel, useSheet: true)
         }
     }
 }

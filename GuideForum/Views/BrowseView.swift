@@ -4,7 +4,6 @@
 //
 //  Created by 1234 on 09.04.2023.
 //
-
 import Foundation
 import SwiftUI
 
@@ -29,7 +28,7 @@ struct BrowseView: View {
                 List {
                     Section("Posts") {
                         ForEach(dataModel.posts.filter({searchText.isEmpty ? true : $0.title.contains(searchText)}), id: \.id) { post in
-                            NavigationLink(destination: PostView(dataModel: dataModel, userModel: userModel, postModel: PostViewModel(post: post))) {
+                            NavigationLink(destination: PostView(post: post, dataModel: dataModel, userModel: userModel, postModel: PostViewModel(post: post))) {
                                 PostRow(postModel: PostViewModel(post: post), userModel: userModel)
                             }
                         }
@@ -37,7 +36,7 @@ struct BrowseView: View {
                     Section("Users") {
                         ForEach(dataModel.users.filter({searchText.isEmpty ? true : $0.name.contains(searchText)}), id: \.id) { user in
                             NavigationLink(destination: ProfilePage(user: user, userModel: userModel, dataModel: dataModel)) {
-                                UserCard(creator: user, dataModel: dataModel)
+                                UserCard(user: user, dataModel: dataModel)
                             }
                         }
                     }

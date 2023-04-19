@@ -15,6 +15,7 @@ struct ProfileView: View {
     @State private var showingSheet = false
     @ObservedObject var userModel: UserViewModel
     @ObservedObject var dataModel: DataViewModel
+    @State private var isLoginShown = false
 
     // Create variable to dismiss this view.
     @Environment(\.dismiss) var dismiss
@@ -28,20 +29,9 @@ struct ProfileView: View {
                     ProfileInfo(user: userModel.user)
                     ProfileLink(userModel: userModel, dataModel: dataModel)
                     Spacer()
-                    
-                    Button(action: {
-                        let firebaseAuth = Auth.auth()
-                        do {
-                          try firebaseAuth.signOut()
-                            dismiss()
-                        } catch let signOutError as NSError {
-                          print("Error signing out: %@", signOutError)
-                        }
-                    }) {
-                        Text("Sign out")
-                    }
                 }
             }
+
             .navigationBarItems(
                 leading:
                     Text("Profile")

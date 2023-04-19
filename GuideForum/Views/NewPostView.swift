@@ -15,6 +15,7 @@ struct NewPostView: View {
     @State private var title = ""
     @State private var description = ""
     @State private var content = ""
+    @State private var showingAlert = false
     
     @Environment(\.dismiss) var dismiss
     
@@ -22,7 +23,7 @@ struct NewPostView: View {
     let descriptionLimit = 50
     
     func limitText(_ upper: Int, text: inout String) {
-            if text.count > upper {
+        if text.count > upper {
                 text = String(text.prefix(upper))
             }
         }
@@ -44,6 +45,13 @@ struct NewPostView: View {
                     
                     TextField("Show something great!", text: $content, axis: .vertical)
                     
+                    Button("") {
+                                showingAlert.toggle()
+                            }
+                            .alert(isPresented: $showingAlert) {
+                                Alert(title: Text("Incorrect input data!"), message: Text("Your title and description whould be longer than 5 symbols!"))
+                            }
+                    
                 }
 
             .padding(20)
@@ -56,8 +64,12 @@ struct NewPostView: View {
                     .foregroundColor(Color(.black)),
                 trailing:
                     Button(action: {
-                        dataModel.posts.append(Post(title: title, description: description, text: content, isFavorite: false, creator: userModel.user))
-                        dismiss()
+                        if title.count > 5 && description.count > 5 && content.count > 10 {
+                            dataModel.posts.append(Post(title: title, description: description, text: content, isFavorite: false, creator: userModel.user))
+                            dismiss()
+                        } else {
+                            showingAlert = true
+                        }
                 
                     }){
                         Image(systemName: "square.and.arrow.up.circle.fill")

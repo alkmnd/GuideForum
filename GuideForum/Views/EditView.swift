@@ -6,13 +6,15 @@
 //
 
 import Foundation
-import SwiftUI 
+import SwiftUI
+import Firebase
 
 // Shows view for editing user profile.
 struct EditView: View {
     
     @ObservedObject var userModel: UserViewModel
     @Environment(\.dismiss) var dismiss
+    @State private var isLoginShown = false
     
     var body: some View {
         NavigationView {
@@ -25,7 +27,7 @@ struct EditView: View {
                     .textInputAutocapitalization(.never)
                     .disableAutocorrection(true)
                 Divider()
-                TextField("",text: $userModel.user.status)
+                TextField("Set Status",text: $userModel.user.status)
                     .font(.system(size: 20))
                     .foregroundColor(Color(.darkGray))
                     .padding(10)
@@ -39,6 +41,22 @@ struct EditView: View {
                         .foregroundColor(.mint)
                         .clipShape(Circle())
                 }
+                Divider()
+                Button(action: {
+                    let firebaseAuth = Auth.auth()
+                    do {
+                      try firebaseAuth.signOut()
+                        isLoginShown = true
+//                            dismiss()
+                    } catch let signOutError as NSError {
+                      print("Error signing out: %@", signOutError)
+                    }
+                }) {
+                    Text("Sign out")
+                }.offset(y: 100)
+            }
+            .fullScreenCover(isPresented: $isLoginShown) {
+                LoginView()
             }
             .offset(y: -180)
             .ignoresSafeArea()
