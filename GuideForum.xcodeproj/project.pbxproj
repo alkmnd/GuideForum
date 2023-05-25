@@ -21,6 +21,10 @@
 		7C6C851F29CCA15C0074F443 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 7C6C851E29CCA15C0074F443 /* FirebaseFirestore */; };
 		7C6C852329CCACEA0074F443 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7C6C852229CCACEA0074F443 /* GoogleService-Info.plist */; };
 		7CC2D1DE29E35217009C4A9F /* BrowseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC2D1DD29E35217009C4A9F /* BrowseView.swift */; };
+		7CC632142A1F95C700202CF8 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC632132A1F95C700202CF8 /* DataManager.swift */; };
+		7CC632162A1FA68800202CF8 /* UserCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC632152A1FA68800202CF8 /* UserCredentials.swift */; };
+		7CC632182A1FA74900202CF8 /* PostCreate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC632172A1FA74900202CF8 /* PostCreate.swift */; };
+		7CC6321A2A1FA86000202CF8 /* TokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC632192A1FA86000202CF8 /* TokenResponse.swift */; };
 		7CC8DB5529E59F2D00C4EC4D /* NewPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC8DB5429E59F2D00C4EC4D /* NewPostView.swift */; };
 		7CC8DB5729ED99A600C4EC4D /* DataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC8DB5629ED99A600C4EC4D /* DataViewModel.swift */; };
 		7CC8DB5A29ED9AAE00C4EC4D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC8DB5929ED9AAE00C4EC4D /* User.swift */; };
@@ -52,6 +56,10 @@
 		7C6C851429CB5B7D0074F443 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7C6C852229CCACEA0074F443 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7CC2D1DD29E35217009C4A9F /* BrowseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowseView.swift; sourceTree = "<group>"; };
+		7CC632132A1F95C700202CF8 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		7CC632152A1FA68800202CF8 /* UserCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCredentials.swift; sourceTree = "<group>"; };
+		7CC632172A1FA74900202CF8 /* PostCreate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCreate.swift; sourceTree = "<group>"; };
+		7CC632192A1FA86000202CF8 /* TokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenResponse.swift; sourceTree = "<group>"; };
 		7CC8DB5329E57D9A00C4EC4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		7CC8DB5429E59F2D00C4EC4D /* NewPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostView.swift; sourceTree = "<group>"; };
 		7CC8DB5629ED99A600C4EC4D /* DataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataViewModel.swift; sourceTree = "<group>"; };
@@ -128,6 +136,9 @@
 			children = (
 				7CC8DB5929ED9AAE00C4EC4D /* User.swift */,
 				7CC8DB5C29ED9DB900C4EC4D /* Post.swift */,
+				7CC632152A1FA68800202CF8 /* UserCredentials.swift */,
+				7CC632172A1FA74900202CF8 /* PostCreate.swift */,
+				7CC632192A1FA86000202CF8 /* TokenResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -138,6 +149,7 @@
 				7CC8DB5629ED99A600C4EC4D /* DataViewModel.swift */,
 				7CC8DB5E29ED9E0D00C4EC4D /* PostViewModel.swift */,
 				7CC8DB6D29EDEAD100C4EC4D /* UserViewModel.swift */,
+				7CC632132A1F95C700202CF8 /* DataManager.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -246,6 +258,7 @@
 			files = (
 				7CC8DB7629EF551000C4EC4D /* FollowingsList.swift in Sources */,
 				7CC8DB6C29EDE9E300C4EC4D /* ProfilePage.swift in Sources */,
+				7CC6321A2A1FA86000202CF8 /* TokenResponse.swift in Sources */,
 				7CC8DB5F29ED9E0D00C4EC4D /* PostViewModel.swift in Sources */,
 				7CC8DB5A29ED9AAE00C4EC4D /* User.swift in Sources */,
 				7C4848B929D49B9A0087428D /* ProfileInfo.swift in Sources */,
@@ -263,11 +276,14 @@
 				7CC8DB5729ED99A600C4EC4D /* DataViewModel.swift in Sources */,
 				7C4848B529D495860087428D /* HomeView.swift in Sources */,
 				7CC8DB6A29EDE3EC00C4EC4D /* PostList.swift in Sources */,
+				7CC632162A1FA68800202CF8 /* UserCredentials.swift in Sources */,
 				7C59ADFF29CE57B30066E8ED /* TabBarView.swift in Sources */,
 				7CC8DB7429EF54FC00C4EC4D /* FollowersList.swift in Sources */,
+				7CC632142A1F95C700202CF8 /* DataManager.swift in Sources */,
 				7CC8DB7029EDFFBE00C4EC4D /* LoginView.swift in Sources */,
 				7CC8DB7829EF697800C4EC4D /* PostRow.swift in Sources */,
 				7C4848B729D49B700087428D /* ProfileLink.swift in Sources */,
+				7CC632182A1FA74900202CF8 /* PostCreate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

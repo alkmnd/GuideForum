@@ -8,19 +8,15 @@
 import Foundation
 
 
-struct Post: Hashable, Codable, Identifiable  {
+struct Post: Hashable, Decodable, Identifiable {
     var id = UUID()
     let title: String
     let description: String
-    let text: String
-    var isFavorite: Bool
-    var creator: User
+    let content: String
+    var creator: String
     
-    mutating func changeFavorite() {
-        if isFavorite == true {
-            isFavorite = false
-        } else {
-            isFavorite = true
-        }
-    }
+    
+    enum CodingKeys: String, CodingKey {
+           case id, title, description, content, creator
+       }
 }

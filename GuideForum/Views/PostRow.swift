@@ -17,11 +17,11 @@ struct PostRow: View {
     // Getting a content preview.
     func getPreview(post: Post) -> String {
         var preview: String = ""
-        if postModel.post.text.count < 20 {
-            preview = postModel.post.text
+        if postModel.post.content.count < 20 {
+            preview = postModel.post.content
         } else {
-            let index = postModel.post.text.index(postModel.post.text.startIndex, offsetBy: 20)
-            preview = String(postModel.post.text.prefix(upTo: index))
+            let index = postModel.post.content.index(postModel.post.content.startIndex, offsetBy: 20)
+            preview = String(postModel.post.content.prefix(upTo: index))
         }
         return preview
     }
@@ -43,28 +43,19 @@ struct PostRow: View {
             
         Button(action: {
             
-            // Check states.
-            if  postModel.post.isFavorite == false {
-                postModel.post.isFavorite = true
-//                userModel.favoritePosts.append(postModel.post)
-            } else {
-//                userModel.favoritePosts.remove(at: userModel.favoritePosts.firstIndex(where: {$0.id == postModel.post.id})!)
-                postModel.post.isFavorite = false
-                                               
-            }
         }) {
             
             // Choose correct button form.
-            if postModel.post.isFavorite == false {
+//            if postModel.post.isFavorite == false {
                 Image(systemName: "bookmark")
                     .resizable()
                     .frame(width: 30, height: 30)
-            } else {
-                Image(systemName: "bookmark.fill")
-                    .resizable()
-                    .frame(width: 30, height: 30)
+//            } else {
+//                Image(systemName: "bookmark.fill")
+//                    .resizable()
+//                    .frame(width: 30, height: 30)
                 
-            }
+//            }
         }
         .buttonStyle(PlainButtonStyle())
     }

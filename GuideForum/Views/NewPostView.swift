@@ -65,7 +65,7 @@ struct NewPostView: View {
                 trailing:
                     Button(action: {
                         if title.count > 5 && description.count > 5 && content.count > 10 {
-                            dataModel.posts.append(Post(title: title, description: description, text: content, isFavorite: false, creator: userModel.user))
+                            dataModel.posts.append(Post(title: title, description: description, content: content, creator: userModel.user.id.uuidString))
                             dismiss()
                         } else {
                             showingAlert = true

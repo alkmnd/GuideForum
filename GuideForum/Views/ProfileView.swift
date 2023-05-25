@@ -16,6 +16,8 @@ struct ProfileView: View {
     @ObservedObject var userModel: UserViewModel
     @ObservedObject var dataModel: DataViewModel
     @State private var isLoginShown = false
+    
+    @EnvironmentObject var dataManager: DataManager
 
     // Create variable to dismiss this view.
     @Environment(\.dismiss) var dismiss

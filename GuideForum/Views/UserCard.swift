@@ -14,7 +14,7 @@ struct UserCard: View {
     
     var body: some View {
         HStack {
-                Image(systemName: user.image)
+                Image(systemName: "person.circle")
                 Text(user.name)
         }
     }

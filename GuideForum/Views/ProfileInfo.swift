@@ -31,7 +31,7 @@ struct ProfileInfo: View {
                     .clipShape(Circle())
                 
             }
-            Text(user.status)
+            Text("Hello everyone!")
                 .foregroundColor(Color(.darkGray))
                 .fixedSize()
         }

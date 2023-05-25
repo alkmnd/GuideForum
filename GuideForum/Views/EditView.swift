@@ -15,7 +15,7 @@ struct EditView: View {
     @ObservedObject var userModel: UserViewModel
     @Environment(\.dismiss) var dismiss
     @State private var isLoginShown = false
-    
+    @State private var status = "Hello everyone!"
     var body: some View {
         NavigationView {
             VStack {
@@ -27,7 +27,7 @@ struct EditView: View {
                     .textInputAutocapitalization(.never)
                     .disableAutocorrection(true)
                 Divider()
-                TextField("Set Status",text: $userModel.user.status)
+                TextField("Set Status", text: $status)
                     .font(.system(size: 20))
                     .foregroundColor(Color(.darkGray))
                     .padding(10)

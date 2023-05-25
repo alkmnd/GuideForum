@@ -23,7 +23,7 @@ struct ProfileLink: View {
                     case "Saved Tutorials":
                         PostList(posts: userModel.favoritePosts, dataModel: dataModel, userModel: userModel, useSheet: true).padding(.top, -180)
                     case "My Posts":
-                        PostList(posts: dataModel.posts.filter{$0.creator == userModel.user}, dataModel: dataModel, userModel: userModel, useSheet: true).padding(.top, -180)
+                        PostList(posts: dataModel.posts.filter{$0.creator == userModel.user.id.uuidString}, dataModel: dataModel, userModel: userModel, useSheet: true).padding(.top, -180)
                     default:
                         Text("Something wrong")
                     }

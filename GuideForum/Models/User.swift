@@ -12,14 +12,14 @@ struct User: Hashable, Codable, Identifiable {
     var id = UUID()
     var name: String
     var email: String
-    var status: String
-    var image: String
     
     
-    init(name: String, email: String, image: String = "person.circle.fill", status: String = "") {
+    init(name: String, email: String) {
         self.name = name
         self.email = email
-        self.image = image
-        self.status = status
     }
+    
+    enum CodingKeys: String, CodingKey {
+           case id, name, email
+       }
 }

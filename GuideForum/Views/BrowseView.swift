@@ -13,6 +13,8 @@ struct BrowseView: View {
     @ObservedObject var dataModel: DataViewModel
     @ObservedObject var userModel: UserViewModel
     
+    @EnvironmentObject var dataManager: DataManager
+    
     // Create variable to dismiss this view.
     @Environment(\.isSearching) var isSearching
     @State var searchText = ""
@@ -22,28 +24,38 @@ struct BrowseView: View {
     @State var filteredUsers = [User]()
     
     var body: some View {
-        VStack() {
-            NavigationStack {
-                SearchBar(text: $searchText)
-                List {
-                    Section("Posts") {
-                        ForEach(dataModel.posts.filter({searchText.isEmpty ? true : $0.title.contains(searchText)}), id: \.id) { post in
-                            NavigationLink(destination: PostView(post: post, dataModel: dataModel, userModel: userModel, postModel: PostViewModel(post: post))) {
-                                PostRow(postModel: PostViewModel(post: post), userModel: userModel)
+//        NavigationView {
+            VStack() {
+                NavigationStack {
+                    SearchBar(text: $searchText)
+                        .offset(y: -24)
+
+                    List {
+                        Section("Posts") {
+                            ForEach(dataModel.posts.filter({searchText.isEmpty ? true : $0.title.contains(searchText)}), id: \.id) { post in
+                                NavigationLink(destination: PostView(post: post, dataModel: dataModel, userModel: userModel, postModel: PostViewModel(post: post))) {
+                                    PostRow(postModel: PostViewModel(post: post), userModel: userModel)
+                                }
+                            }
+                        }
+                        Section("Users") {
+                            ForEach(dataModel.users.filter({searchText.isEmpty ? true : $0.name.contains(searchText)}), id: \.id) { user in
+                                NavigationLink(destination: ProfilePage(user: user, userModel: userModel, dataModel: dataModel)) {
+                                    UserCard(user: user, dataModel: dataModel)
+                                }
                             }
                         }
                     }
-                    Section("Users") {
-                        ForEach(dataModel.users.filter({searchText.isEmpty ? true : $0.name.contains(searchText)}), id: \.id) { user in
-                            NavigationLink(destination: ProfilePage(user: user, userModel: userModel, dataModel: dataModel)) {
-                                UserCard(user: user, dataModel: dataModel)
-                            }
-                        }
-                    }
+//                    .offset(y: -20)
+                    .frame(height: 600)
+                    .ignoresSafeArea()
                 }
             }
+            .offset(y: 10)
+            .navigationBarBackButtonHidden()
+
         }
-    }
+//    }
    
 }
 

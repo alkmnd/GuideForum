@@ -16,6 +16,8 @@ struct PostView: View {
     @ObservedObject var userModel: UserViewModel
     @ObservedObject var postModel: PostViewModel
     
+    @EnvironmentObject var dataManager: DataManager
+    
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
@@ -24,10 +26,10 @@ struct PostView: View {
                     Button(action: {
                             showingSheet.toggle()
                         }) {
-            UserCard(user: post.creator, dataModel: dataModel)
+                            UserCard(user: dataManager.users.first(where: {$0.id.uuidString == post.creator})!, dataModel: dataModel)
                                         }
                                         .sheet(isPresented: $showingSheet) {
-                                            ProfilePage(user: post.creator, userModel: userModel, dataModel: dataModel)
+                                            ProfilePage(user: dataManager.users.first(where: {$0.id.uuidString == post.creator})!, userModel: userModel, dataModel: dataModel)
                                         }
             HStack {
                 Text("\(post.title)")
@@ -37,29 +39,29 @@ struct PostView: View {
                 Button(action: {
                     
                     // Check states.
-                    if  postModel.post.isFavorite == false {
-                        postModel.post.isFavorite = true
-                    } else {
-                        postModel.post.isFavorite = false
-                                                       
-                    }
+//                    if  postModel.post.isFavorite == false {
+//                        postModel.post.isFavorite = true
+//                    } else {
+//                        postModel.post.isFavorite = false
+//
+//                    }
                 }) {
                     
                     // Choose correct button form.
-                    if postModel.post.isFavorite == false {
+//                    if postModel.post.isFavorite == false {
                         Image(systemName: "bookmark")
                             .resizable()
                             .frame(width: 30, height: 30)
-                    } else {
-                        Image(systemName: "bookmark.fill")
-                            .resizable()
-                            .frame(width: 30, height: 30)
-                        
-                    }
+//                    } else {
+//                        Image(systemName: "bookmark.fill")
+//                            .resizable()
+//                            .frame(width: 30, height: 30)
+//
+//                    }
                 }
                 .buttonStyle(PlainButtonStyle())
                 .padding([.trailing])
-                if userModel.user.id == postModel.post.creator.id {
+                if userModel.user.id.uuidString == postModel.post.creator {
                     Button(action: {
                         
                         
@@ -77,7 +79,7 @@ struct PostView: View {
                 .foregroundColor(Color(.systemGray))
             GeometryReader {
                 geometry in ScrollView() {
-                    Text("\(post.text)")
+                    Text("\(post.content)")
                         .lineLimit(nil)
                         .frame(
                                 minWidth: geometry.size.width,
@@ -95,7 +97,7 @@ struct PostView: View {
 }
 
 struct PostView_Previews: PreviewProvider {
-    static var post: Post = Post(title: "Awesome title", description: "Descripton", text: "Even though Swift always had out of the box solution to this problem (without String extension, which I provided below), I still would strongly recommend using the extension. Why? Because it saved me tens of hours of painful migration from early versions of Swift, where String's syntax was changing almost every release, but all I needed to do was to update the extension's implementation as opposed to refactoring the entire project. Make your choice.", isFavorite: false, creator: User(name:"Лапина Кира", email: "kira@gmail.com"))
+    static var post: Post = Post(title: "Awesome title", description: "Descripton", content: "Even though Swift always had out of the box solution to this problem (without String extension, which I provided below), I still would strongly recommend using the extension. Why? Because it saved me tens of hours of painful migration from early versions of Swift, where String's syntax was changing almost every release, but all I needed to do was to update the extension's implementation as opposed to refactoring the entire project. Make your choice.", creator: "kjhfd")
     static var previews: some View {
         PostView(post: post, dataModel: DataViewModel(), userModel: UserViewModel(), postModel: PostViewModel(post:post))
         

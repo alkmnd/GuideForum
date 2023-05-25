@@ -16,6 +16,8 @@ struct HomeView: View {
     @ObservedObject var dataModel: DataViewModel
     @ObservedObject var userModel: UserViewModel
     
+    @EnvironmentObject var dataManager: DataManager
+    
     var body: some View {
         NavigationView {
             NavigationStack {
