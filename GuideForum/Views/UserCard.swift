@@ -10,7 +10,6 @@ import SwiftUI
 struct UserCard: View {
     @State private var showingSheet = false
     let user: User
-    @ObservedObject var dataModel: DataViewModel
     
     var body: some View {
         HStack {

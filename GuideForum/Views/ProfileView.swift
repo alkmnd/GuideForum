@@ -13,8 +13,7 @@ import Firebase
 struct ProfileView: View {
     
     @State private var showingSheet = false
-    @ObservedObject var userModel: UserViewModel
-    @ObservedObject var dataModel: DataViewModel
+
     @State private var isLoginShown = false
     
     @EnvironmentObject var dataManager: DataManager
@@ -28,8 +27,8 @@ struct ProfileView: View {
         NavigationView {
             ZStack {
                 VStack {
-                    ProfileInfo(user: userModel.user)
-                    ProfileLink(userModel: userModel, dataModel: dataModel)
+                    ProfileInfo(user: dataManager.users.first(where: {$0.id.uuidString == dataManager.userID})!)
+                    ProfileLink()
                     Spacer()
                 }
             }
@@ -50,7 +49,7 @@ struct ProfileView: View {
                             .resizable()
                         .frame(width: 30, height: 30)}
                     .sheet(isPresented: $showingSheet) {
-                        EditView(userModel: userModel)
+                        EditView()
                     }
                     .buttonStyle(PlainButtonStyle()))
                     
@@ -60,7 +59,7 @@ struct ProfileView: View {
 
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileView(userModel: UserViewModel(), dataModel: DataViewModel())
+        ProfileView()
         
     }
 }

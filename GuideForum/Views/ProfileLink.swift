@@ -8,8 +8,7 @@ import SwiftUI
 
 struct ProfileLink: View {
     
-    @ObservedObject var userModel: UserViewModel
-    @ObservedObject var dataModel: DataViewModel
+    @EnvironmentObject var dataManager: DataManager
     let profileLinkNames: [String] = ["Saved Tutorials", "Followers", "Following", "My Posts"]
     
     var body: some View {
@@ -17,13 +16,13 @@ struct ProfileLink: View {
                 ForEach(profileLinkNames, id: \.self) { profileLinkName in
                     NavigationLink(destination: { switch profileLinkName {
                     case "Following":
-                        FollowingsList(userModel: userModel, dataModel: dataModel).padding(.top, -180)
+                        FollowingsList().padding(.top, -180)
                     case "Followers":
-                        FollowersList(userModel: userModel, dataModel: dataModel).padding(.top, -180)
+                        FollowersList().padding(.top, -180)
                     case "Saved Tutorials":
-                        PostList(posts: userModel.favoritePosts, dataModel: dataModel, userModel: userModel, useSheet: true).padding(.top, -180)
+                        PostList(posts: dataManager.posts, useSheet: true).padding(.top, -180)
                     case "My Posts":
-                        PostList(posts: dataModel.posts.filter{$0.creator == userModel.user.id.uuidString}, dataModel: dataModel, userModel: userModel, useSheet: true).padding(.top, -180)
+                        PostList(posts: dataManager.posts, useSheet: true).padding(.top, -180)
                     default:
                         Text("Something wrong")
                     }

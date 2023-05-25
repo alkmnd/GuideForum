@@ -9,8 +9,7 @@ import SwiftUI
 
 struct PostList: View {
     var posts: [Post]
-    @ObservedObject var dataModel: DataViewModel
-    @ObservedObject var userModel: UserViewModel
+    @EnvironmentObject var dataManager: DataManager
     @State private var showingSheet = false
     var useSheet: Bool
     var body: some View {
@@ -22,8 +21,8 @@ struct PostList: View {
                 if !useSheet {
                     List {
                         ForEach(posts, id: \.id) { post in
-                            NavigationLink(destination: PostView(post: post, dataModel: dataModel, userModel: userModel, postModel: PostViewModel(post: post))) {
-                                PostRow(postModel: PostViewModel(post: post), userModel: userModel)
+                            NavigationLink(destination: PostView(post: post)) {
+                                PostRow(post: post)
                             }
                         }
                     }
@@ -33,11 +32,11 @@ struct PostList: View {
                             Button(action: {
                                 showingSheet.toggle()
                             }) {
-                                PostRow(postModel: PostViewModel(post: post), userModel: userModel)
+                                PostRow(post: post)
                             }
                             .buttonStyle(PlainButtonStyle())
                             .sheet(isPresented: $showingSheet) {
-                                PostView(post: post, dataModel: dataModel, userModel: userModel, postModel: PostViewModel(post: post))
+                                PostView(post: post)
                             }
                         }
                     }

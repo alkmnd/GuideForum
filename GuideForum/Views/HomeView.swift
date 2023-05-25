@@ -13,8 +13,6 @@ struct HomeView: View {
     
     @State private var showingDetail = false
     @State private var showingSheet = false
-    @ObservedObject var dataModel: DataViewModel
-    @ObservedObject var userModel: UserViewModel
     
     @EnvironmentObject var dataManager: DataManager
     
@@ -22,9 +20,9 @@ struct HomeView: View {
         NavigationView {
             NavigationStack {
                 List {
-                    ForEach(dataModel.posts, id: \.id) { post in
-                        NavigationLink(destination: PostView(post: post, dataModel: dataModel, userModel: userModel, postModel: PostViewModel(post: post))) {
-                            PostRow(postModel: PostViewModel(post: post), userModel: userModel)
+                    ForEach(dataManager.posts, id: \.id) { post in
+                        NavigationLink(destination: PostView(post: post)) {
+                            PostRow(post: post)
                             
                         }
                 
@@ -49,7 +47,7 @@ struct HomeView: View {
                             
                         }
                         .sheet(isPresented: $showingSheet) {
-                            NewPostView(dataModel: dataModel, userModel: userModel)
+                            NewPostView()
                         })
             }
             
@@ -66,7 +64,7 @@ struct HomeView: View {
     
     struct HomeView_Previews: PreviewProvider {
         static var previews: some View {
-            HomeView(dataModel: DataViewModel(), userModel: UserViewModel())
+            HomeView()
             
         }
     }

@@ -9,27 +9,27 @@ import SwiftUI
 
 // Strcut to present a list of followers.
 struct FollowersList: View {
-    @ObservedObject var userModel: UserViewModel
-    @ObservedObject var dataModel: DataViewModel
+    
     @State private var showingSheet = false
+    @EnvironmentObject var dataManager: DataManager
     
     var body: some View {
         NavigationStack {
-            if userModel.followers.count == 0 {
+            if dataManager.followers.count == 0 {
                 Text("Nothing here")
                     .foregroundColor(Color(.systemGray))
             } else {
                 List {
-                    ForEach(userModel.followers, id: \.id) { user in
+                    ForEach(dataManager.followers, id: \.id) { user in
                         Button(action: {
                             showingSheet.toggle()
                         }) {
-                            UserCard(user: user, dataModel: dataModel)
+                            UserCard(user: user)
                         }
                         .buttonStyle(PlainButtonStyle())
                         
                         .sheet(isPresented: $showingSheet) {
-                            ProfilePage(user: user, userModel: userModel, dataModel: dataModel)
+                            ProfilePage(user: user)
                         }
                     }
                 }

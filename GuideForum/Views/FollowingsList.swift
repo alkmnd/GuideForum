@@ -9,28 +9,26 @@ import SwiftUI
 
 // Struct ro present followings in list.
 struct FollowingsList: View {
-    
-    @ObservedObject var userModel: UserViewModel
-    @ObservedObject var dataModel: DataViewModel
+    @EnvironmentObject var dataManager: DataManager
     @State private var showingSheet = false
     
     var body: some View {
         NavigationStack {
-            if userModel.followings.count == 0 {
+            if dataManager.followings.count == 0 {
                 Text("Nothing here")
                     .foregroundColor(Color(.systemGray))
             } else {
                 List {
-                    ForEach(userModel.followings, id: \.id) { user in
+                    ForEach(dataManager.followings, id: \.id) { user in
                         Button(action: {
                             showingSheet.toggle()
                         }) {
-                            UserCard(user: user, dataModel: dataModel)
+                            UserCard(user: user)
                         }
                         .buttonStyle(PlainButtonStyle())
                         
                         .sheet(isPresented: $showingSheet) {
-                            ProfilePage(user: user, userModel: userModel, dataModel: dataModel)
+                            ProfilePage(user: user)
                         }
                     }
                 }

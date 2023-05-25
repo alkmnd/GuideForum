@@ -10,12 +10,12 @@ import SwiftUI
 import Combine
 
 struct NewPostView: View {
-    @ObservedObject var dataModel: DataViewModel
-    @ObservedObject var userModel: UserViewModel
+
     @State private var title = ""
     @State private var description = ""
     @State private var content = ""
     @State private var showingAlert = false
+    @EnvironmentObject var dataManager: DataManager
     
     @Environment(\.dismiss) var dismiss
     
@@ -65,7 +65,7 @@ struct NewPostView: View {
                 trailing:
                     Button(action: {
                         if title.count > 5 && description.count > 5 && content.count > 10 {
-                            dataModel.posts.append(Post(title: title, description: description, content: content, creator: userModel.user.id.uuidString))
+                            dataManager.posts.append(Post(title: title, description: description, content: content, creator: dataManager.userID!))
                             dismiss()
                         } else {
                             showingAlert = true
@@ -88,7 +88,7 @@ struct NewPostView: View {
 
 struct NewPostView_Previews: PreviewProvider {
     static var previews: some View {
-        NewPostView(dataModel: DataViewModel(), userModel: UserViewModel())
+        NewPostView()
         
     }
 }

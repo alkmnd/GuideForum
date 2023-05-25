@@ -12,14 +12,14 @@ import Firebase
 // Shows view for editing user profile.
 struct EditView: View {
     
-    @ObservedObject var userModel: UserViewModel
     @Environment(\.dismiss) var dismiss
     @State private var isLoginShown = false
     @State private var status = "Hello everyone!"
+    @EnvironmentObject var dataManager: DataManager
     var body: some View {
         NavigationView {
             VStack {
-                TextField("", text: $userModel.user.name)
+                TextField("", text: $dataManager.userCredentials.name)
                     .fontWeight(.bold)
                     .font(.system(size: 25))
                     .padding(10)
@@ -81,7 +81,7 @@ struct EditView: View {
 
 struct EditView_Previews: PreviewProvider {
     static var previews: some View {
-        EditView(userModel: UserViewModel())
+        EditView()
         
     }
 }

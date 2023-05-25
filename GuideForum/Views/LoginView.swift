@@ -19,12 +19,16 @@ struct LoginView: View {
     @State private var name = ""
     @State var userIsLoggedIn = false
     
-//    var body: some View {
-//        // Choosing correct view to show.
-//        content
-//    }
-    
     var body: some View {
+        // Choosing correct view to show.
+        if dataManager.isLoggedIn {
+            TabBarView()
+        } else {
+            content
+        }
+    }
+    
+    var content: some View {
         NavigationView {
             ZStack {
                 Color.black
@@ -78,6 +82,7 @@ struct LoginView: View {
                         dataManager.userCredentials.email = email
                         dataManager.userCredentials.password = password
                         dataManager.registerUser()
+                        
                         //                    register()
                     } label: {
                         Text("Sign up")
@@ -103,51 +108,25 @@ struct LoginView: View {
                     }
                     .padding(.top)
                     .offset(y:110)
-                    NavigationLink(destination: TabBarView().environmentObject(dataManager), isActive: $dataManager.isLoggedIn) {
-                        EmptyView()
-                    }.navigationBarBackButtonHidden()
                 }
                 .frame(width: 350)
-                //            .onAppear {
-                //                Auth.auth().addStateDidChangeListener { auth, user in if user != nil {
-                //                    userIsLoggedIn.toggle()
-                //                }
-                //
-                //                }
                 
             }
             .ignoresSafeArea()
         }
     }
     
-    func login() {
-        Auth.auth().signIn(withEmail: email, password: password) { result, error in
-            if error != nil {
-                print(error!.localizedDescription)
-            }
-        }
-    }
-    
-    
-    func register() {
-        Auth.auth().createUser(withEmail: email, password: password) { result, error in
-            if error != nil {
-                print(error!.localizedDescription)
-            }
-        }
-    }
- }
-
-
-extension  View {
-    func placeholder<Content: View> (
-        when shuldShow: Bool,
-        alignment: Alignment = .leading,
-        @ViewBuilder placeholder: () -> Content) -> some View {
-            
-            ZStack(alignment: alignment) {
-                placeholder().opacity(shuldShow ? 1: 0)
-                self
-            }
-        }
 }
+    extension  View {
+        func placeholder<Content: View> (
+            when shuldShow: Bool,
+            alignment: Alignment = .leading,
+            @ViewBuilder placeholder: () -> Content) -> some View {
+                
+                ZStack(alignment: alignment) {
+                    placeholder().opacity(shuldShow ? 1: 0)
+                    self
+                }
+            }
+    }
+    

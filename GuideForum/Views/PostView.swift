@@ -12,9 +12,7 @@ struct PostView: View {
     
     var post: Post
     @State private var showingSheet = false
-    @ObservedObject var dataModel: DataViewModel
-    @ObservedObject var userModel: UserViewModel
-    @ObservedObject var postModel: PostViewModel
+
     
     @EnvironmentObject var dataManager: DataManager
     
@@ -26,10 +24,10 @@ struct PostView: View {
                     Button(action: {
                             showingSheet.toggle()
                         }) {
-                            UserCard(user: dataManager.users.first(where: {$0.id.uuidString == post.creator})!, dataModel: dataModel)
+                            UserCard(user: dataManager.users.first(where: {$0.id.uuidString == post.creator})!)
                                         }
                                         .sheet(isPresented: $showingSheet) {
-                                            ProfilePage(user: dataManager.users.first(where: {$0.id.uuidString == post.creator})!, userModel: userModel, dataModel: dataModel)
+                                            ProfilePage(user: dataManager.users.first(where: {$0.id.uuidString == post.creator})!)
                                         }
             HStack {
                 Text("\(post.title)")
@@ -61,7 +59,7 @@ struct PostView: View {
                 }
                 .buttonStyle(PlainButtonStyle())
                 .padding([.trailing])
-                if userModel.user.id.uuidString == postModel.post.creator {
+                if dataManager.userID == post.creator {
                     Button(action: {
                         
                         
@@ -99,7 +97,7 @@ struct PostView: View {
 struct PostView_Previews: PreviewProvider {
     static var post: Post = Post(title: "Awesome title", description: "Descripton", content: "Even though Swift always had out of the box solution to this problem (without String extension, which I provided below), I still would strongly recommend using the extension. Why? Because it saved me tens of hours of painful migration from early versions of Swift, where String's syntax was changing almost every release, but all I needed to do was to update the extension's implementation as opposed to refactoring the entire project. Make your choice.", creator: "kjhfd")
     static var previews: some View {
-        PostView(post: post, dataModel: DataViewModel(), userModel: UserViewModel(), postModel: PostViewModel(post:post))
+        PostView(post: post)
         
     }
 }

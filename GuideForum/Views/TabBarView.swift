@@ -11,24 +11,22 @@ import SwiftUI
 
 // Shows bottom tab bar.
 struct TabBarView: View {
-    @ObservedObject var dataModel = DataViewModel()
-    @ObservedObject var userModel = UserViewModel()
     
     var body: some View {
         TabView {
-            HomeView(dataModel: dataModel, userModel: userModel)
+            HomeView()
                 .tabItem{
                     Image(systemName: "house")
                     Text("Home")
                 }
             
-            BrowseView(dataModel: dataModel, userModel: userModel)
+            BrowseView()
                 .tabItem {
                     Image(systemName: "sparkle.magnifyingglass")
                     Text("Browse")
                 }
             
-            ProfileView(userModel: userModel, dataModel: dataModel)
+            ProfileView()
                 .tabItem {
                     Image(systemName: "person.circle.fill")
                     Text("Profile")

@@ -15,6 +15,8 @@ class DataManager: ObservableObject {
     @Published var userID: String? = nil
     @Published var posts: [Post] = []
     @Published var users: [User] = []
+    @Published var followers: [User] = []
+    @Published var followings: [User] = []
     
     private func createPostRequest(urlString: String, parameters: [String: Any]) -> URLRequest? {
             guard let url = URL(string: urlString) else {
@@ -135,4 +137,6 @@ class DataManager: ObservableObject {
                     }
                 }
     }
+    
+    
 }

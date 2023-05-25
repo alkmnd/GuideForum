@@ -10,31 +10,30 @@ import SwiftUI
 
 struct ProfilePage: View {
     let user: User
-    @ObservedObject var userModel: UserViewModel
-    @ObservedObject var dataModel: DataViewModel
+    @EnvironmentObject var dataManager: DataManager
     var body: some View {
         VStack {
             ProfileInfo(user: user)
             Button(action: {
-                if userModel.followings.contains(user) {
-                    userModel.followings.remove(at: userModel.followings.firstIndex(of: user)!)
+                if dataManager.followings.contains(user) {
+                    dataManager.followings.remove(at: dataManager.followings.firstIndex(of: user)!)
                 } else {
-                    userModel.followings.append(user)
+                    dataManager.followings.append(user)
                 }
             }) {
-                if userModel.followings.contains(user) {
+                if dataManager.followings.contains(user) {
                     Text("Unfollow")
                 } else {
                     Text("Follow")
                 }
             }.padding(.top, 5)
-            PostList(posts: dataModel.getPostByUserId(user: user), dataModel: dataModel, userModel: userModel, useSheet: true)
+            PostList(posts:  dataManager.posts.filter({$0.creator == user.id.uuidString}), useSheet: true)
         }
     }
 }
 
 struct ProfilePage_Previews: PreviewProvider {
     static var previews: some View {
-        ProfilePage(user: User(name: "Куликов Макар", email: "makar@gmail.com"), userModel: UserViewModel(), dataModel: DataViewModel())
+        ProfilePage(user: User(name: "Куликов Макар", email: "makar@gmail.com"))
     }
 }
